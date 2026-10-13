@@ -4,30 +4,30 @@
     <div x-data="{ isProfileInfoModal: false, isProfileAddressModal: false }">
         <x-common.page-breadcrumb pageTitle="User Profile" />
 
-        <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-            <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">
+        <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6">
+            <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7">
                 My Profile
             </h3>
 
             <!-- Info -->
-            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
+            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6">
                 <div class="flex flex-col gap-5 sm:flex-row xl:gap-10">
                     <div class="flex-1">
                         <div class="mb-6 flex flex-col gap-5 sm:flex-row xl:items-center xl:justify-between">
                             <div class="flex w-full flex-col items-start gap-6 sm:flex-row sm:items-center">
-                                <div class="border-gray-20 overflow-hidden rounded-full border dark:border-gray-800">
+                                <div class="border-gray-20 overflow-hidden rounded-full border">
                                     <img src="{{ asset('images/user/owner.png') }}" class="size-20" alt="user" />
                                 </div>
                                 <div class="text-start">
-                                    <h4 class="mb-2 text-lg font-semibold text-gray-800 dark:text-white/90">
+                                    <h4 class="mb-2 text-lg font-semibold text-gray-800">
                                         Musharof Chowdhury
                                     </h4>
                                     <div class="flex items-center gap-1 sm:gap-3">
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                                        <p class="text-sm text-gray-500">
                                             Team Manager
                                         </p>
-                                        <div class="hidden h-3.5 w-px bg-gray-300 sm:block dark:bg-gray-700"></div>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                                        <div class="hidden h-3.5 w-px bg-gray-300 sm:block"></div>
+                                        <p class="text-sm text-gray-500">
                                             Arizona, United States.
                                         </p>
                                     </div>
@@ -37,54 +37,54 @@
                         <div
                             class="relative grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-x-11 xl:gap-y-7">
                             <div class="w-full">
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     First Name
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     Chowdury
                                 </p>
                             </div>
                             <div class="w-full">
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Last Name
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     Musharof
                                 </p>
                             </div>
                             <div class="hidden xl:block"></div>
                             <div class="hidden xl:block"></div>
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Email address
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     randomuser@pimjo.com
                                 </p>
                             </div>
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Phone
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     +09 363 398 46
                                 </p>
                             </div>
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Bio
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     Team Manager
                                 </p>
                             </div>
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Social Links
                                 </p>
                                 <div class="flex grow items-center gap-4">
                                     <a href="#"
-                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-200">
+                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20"
                                             height="20" viewBox="0 0 20 20" fill="none">
                                             <path
@@ -93,7 +93,7 @@
                                         </svg>
                                     </a>
                                     <a href="#"
-                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-200">
+                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20"
                                             height="20" viewBox="0 0 20 20" fill="none">
                                             <path
@@ -102,7 +102,7 @@
                                         </svg>
                                     </a>
                                     <a href="#"
-                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-200">
+                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20"
                                             height="20" viewBox="0 0 20 20" fill="none">
                                             <path
@@ -111,7 +111,7 @@
                                         </svg>
                                     </a>
                                     <a href="#"
-                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-200">
+                                        class="shadow-theme-xs size-5 text-sm font-medium text-gray-700 hover:text-gray-500">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20"
                                             height="20" viewBox="0 0 20 20" fill="none">
                                             <path
@@ -125,7 +125,7 @@
                     </div>
                     <div>
                         <button @click="isProfileInfoModal = true"
-                            class="shadow-theme-xs flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                            class="shadow-theme-xs flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto">
                             <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -139,46 +139,46 @@
             </div>
 
             <!-- Address -->
-            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
+            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6">
                 <div class="flex flex-col gap-6 sm:flex-row lg:items-start lg:justify-between">
                     <div class="flex-1">
-                        <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">
+                        <h4 class="text-lg font-semibold text-gray-800 lg:mb-6">
                             Address
                         </h4>
 
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-7 2xl:gap-x-32">
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Country
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     United States
                                 </p>
                             </div>
 
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     City/State
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     Arizona, United States.
                                 </p>
                             </div>
 
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     Postal Code
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     ERT 2489
                                 </p>
                             </div>
 
                             <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                <p class="mb-2 text-xs leading-normal text-gray-500">
                                     TAX ID
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                <p class="text-sm font-medium text-gray-800">
                                     AS4568384
                                 </p>
                             </div>
@@ -187,7 +187,7 @@
 
                     <div>
                         <button @click="isProfileAddressModal = true"
-                            class="shadow-theme-xs flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                            class="shadow-theme-xs flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto">
                             <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -201,22 +201,22 @@
             </div>
 
             <!-- Security -->
-            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
-                <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">
+            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6">
+                <h4 class="text-lg font-semibold text-gray-800 lg:mb-6">
                     Security
                 </h4>
                 <div>
                     <div
-                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end dark:border-gray-800">
+                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end">
                         <div>
-                            <span class="mb-1 block text-base font-medium text-gray-800 dark:text-white/90">Change Password</span>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="mb-1 block text-base font-medium text-gray-800">Change Password</span>
+                            <p class="text-sm text-gray-500">
                                 Receive real-time notifications and team alerts.
                             </p>
                         </div>
                         <div>
                             <button
-                                class="shadow-theme-xs flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-2.5 pr-4 pl-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/3 dark:hover:text-gray-200">
+                                class="shadow-theme-xs flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-2.5 pr-4 pl-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                                     fill="none">
                                     <path
@@ -229,22 +229,22 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end dark:border-gray-800">
+                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end">
                         <div>
-                            <span class="mb-1 block text-base font-medium text-gray-800 dark:text-white/90">Two-factor authentication (2FA)</span>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="mb-1 block text-base font-medium text-gray-800">Two-factor authentication (2FA)</span>
+                            <p class="text-sm text-gray-500">
                                 Keep your account secure by enabling 2FA
                             </p>
                         </div>
                         <div x-data="{ switcherToggle: false }">
                             <label for="toggle1"
-                                class="flex cursor-pointer items-center gap-3 text-sm font-medium text-gray-700 select-none dark:text-gray-400">
+                                class="flex cursor-pointer items-center gap-3 text-sm font-medium text-gray-700 select-none">
                                 <div class="relative">
                                     <input type="checkbox" id="toggle1" class="sr-only"
                                         @change="switcherToggle = !switcherToggle" />
                                     <div class="block h-5 w-9 rounded-full"
-                                        :class="switcherToggle ? 'bg-brand-500 dark:bg-brand-500' :
-                                            'bg-gray-200 dark:bg-white/10'"></div>
+                                        :class="switcherToggle ? 'bg-brand-500' :
+                                            'bg-gray-200'"></div>
                                     <div :class="switcherToggle ? 'ltr:translate-x-full rtl:-translate-x-full' : 'translate-x-0'"
                                         class="shadow-theme-sm absolute top-0.5 ltr:left-0.5 rtl:right-0.5 h-4 w-4 rounded-full bg-white duration-200 ease-linear">
                                     </div>
@@ -256,22 +256,22 @@
             </div>
 
             <!-- Danger Zone -->
-            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
-                <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">
+            <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6">
+                <h4 class="text-lg font-semibold text-gray-800 lg:mb-6">
                     Danger Zone
                 </h4>
                 <div>
                     <div
-                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end dark:border-gray-800">
+                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end">
                         <div>
-                            <span class="mb-1 block text-base font-medium text-gray-800 dark:text-white/90">Logout all devices</span>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="mb-1 block text-base font-medium text-gray-800">Logout all devices</span>
+                            <p class="text-sm text-gray-500">
                                 Sign out from every active session.
                             </p>
                         </div>
                         <div>
                             <button
-                                class="shadow-theme-xs flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-2.5 pr-4 pl-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/3 dark:hover:text-gray-200">
+                                class="shadow-theme-xs flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-2.5 pr-4 pl-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800">
                                 <svg class="rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                                     fill="none">
                                     <path
@@ -284,16 +284,16 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end dark:border-gray-800">
+                        class="flex flex-col justify-between gap-4 border-b border-gray-200 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-end">
                         <div>
-                            <span class="mb-1 block text-base font-medium text-gray-800 dark:text-white/90">Delete account</span>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="mb-1 block text-base font-medium text-gray-800">Delete account</span>
+                            <p class="text-sm text-gray-500">
                                 Once you delete your account, there is no going back. Please be certain.
                             </p>
                         </div>
                         <div>
                             <button
-                                class="border-error-500 text-error-500 hover:bg-error-100 dark:border-error-500/15 inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 pr-4 pl-3.5 text-sm font-medium transition-all dark:hover:bg-red-500/15">
+                                class="border-error-500 text-error-500 hover:bg-error-100 inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 pr-4 pl-3.5 text-sm font-medium transition-all">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                                     fill="none">
                                     <path
@@ -314,10 +314,10 @@
         class="fixed inset-0 z-99999 flex items-center justify-center overflow-y-auto p-5">
         <div class="fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
         <div @click.outside="isProfileInfoModal = false"
-            class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 lg:p-11 dark:bg-gray-900">
+            class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 lg:p-11">
             <!-- close btn -->
             <button @click="isProfileInfoModal = false"
-                class="transition-color absolute top-5 ltr:right-5 rtl:left-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
+                class="transition-color absolute top-5 ltr:right-5 rtl:left-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600">
                 <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -326,17 +326,17 @@
                 </svg>
             </button>
             <div class="px-2 ltr:pr-14 rtl:pl-14">
-                <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+                <h4 class="mb-2 text-2xl font-semibold text-gray-800">
                     Edit Personal Information
                 </h4>
-                <p class="mb-6 text-sm text-gray-500 lg:mb-7 dark:text-gray-400">
+                <p class="mb-6 text-sm text-gray-500 lg:mb-7">
                     Update your details to keep your profile up-to-date.
                 </p>
             </div>
             <form class="flex flex-col">
                 <div class="custom-scrollbar h-[450px] overflow-y-auto px-2">
                     <div>
-                        <h4 class="mb-6 text-lg font-medium text-gray-800 dark:text-white/90">
+                        <h4 class="mb-6 text-lg font-medium text-gray-800">
                             Change Profile Picture
                         </h4>
                         <div class="mb-6 flex max-w-sm items-center gap-6 lg:pr-5">
@@ -344,7 +344,7 @@
                                 <img src="{{ asset('images/user/owner.png') }}" alt="Profile Picture"
                                     class="size-20 rounded-full object-cover sm:size-25" />
                                 <label for="file-upload"
-                                    class="absolute right-0 bottom-0 flex size-8 cursor-pointer items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400">
+                                    class="absolute right-0 bottom-0 flex size-8 cursor-pointer items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500">
                                     <input type="file" name="file-upload" id="file-upload" class="hidden" />
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -360,101 +360,101 @@
                                 </label>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                <p class="text-sm text-gray-500">
                                     Upload a square image (200×200 px) in JPEG or PNG format.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="mb-6">
-                        <h4 class="mb-5 text-lg font-medium text-gray-800 lg:mb-6 dark:text-white/90">
+                        <h4 class="mb-5 text-lg font-medium text-gray-800 lg:mb-6">
                             Personal Information
                         </h4>
                         <div class="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
                             <div class="col-span-2 lg:col-span-1">
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     First Name
                                 </label>
                                 <input type="text" value="Musharof"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div class="col-span-2 lg:col-span-1">
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Last Name
                                 </label>
                                 <input type="text" value="Chowdhury"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div class="col-span-2 lg:col-span-1">
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Email address
                                 </label>
                                 <input type="text" value="randomuser@pimjo.com"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div class="col-span-2 lg:col-span-1">
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Phone
                                 </label>
                                 <input type="text" value="+09 363 398 46"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div class="col-span-2">
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Bio
                                 </label>
                                 <input type="text" value="Team Manager"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
                         </div>
                     </div>
                     <div>
-                        <h5 class="mb-5 text-lg font-medium text-gray-800 lg:mb-6 dark:text-white/90">
+                        <h5 class="mb-5 text-lg font-medium text-gray-800 lg:mb-6">
                             Social Links
                         </h5>
 
                         <div class="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
                             <div>
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Facebook
                                 </label>
                                 <input type="text" value="https://www.facebook.com/PimjoHQ"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div>
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     X.com
                                 </label>
                                 <input type="text" value="https://x.com/PimjoHQ"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div>
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Linkedin
                                 </label>
                                 <input type="text" value="https://linkedin.com/PimjoHQ"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
 
                             <div>
-                                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                     Instagram
                                 </label>
                                 <input type="text" value="https://instagram.com/PimjoHQ"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="mt-6 flex items-center gap-3 px-2 lg:justify-end">
                     <button @click="isProfileInfoModal = false" type="button"
-                        class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
+                        class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 sm:w-auto">
                         Close
                     </button>
                     <button type="button"
@@ -472,10 +472,10 @@
         class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
         <div class="fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
         <div @click.outside="isProfileAddressModal = false"
-            class="no-scrollbar relative flex w-full max-w-[700px] flex-col overflow-y-auto rounded-3xl bg-white p-6 dark:bg-gray-900 lg:p-11">
+            class="no-scrollbar relative flex w-full max-w-[700px] flex-col overflow-y-auto rounded-3xl bg-white p-6 lg:p-11">
             <!-- close btn -->
             <button @click="isProfileAddressModal = false"
-                class="transition-color absolute ltr:right-5 rtl:left-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
+                class="transition-color absolute ltr:right-5 rtl:left-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600">
                 <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -485,10 +485,10 @@
             </button>
 
             <div class="px-2 ltr:pr-14 rtl:pl-14">
-                <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+                <h4 class="mb-2 text-2xl font-semibold text-gray-800">
                     Edit Address
                 </h4>
-                <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+                <p class="mb-6 text-sm text-gray-500 lg:mb-7">
                     Update your details to keep your profile up-to-date.
                 </p>
             </div>
@@ -496,41 +496,41 @@
                 <div class="px-2 overflow-y-auto custom-scrollbar">
                     <div class="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
                         <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                 Country
                             </label>
                             <input type="text" value="United States"
-                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10" />
                         </div>
 
                         <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                 City/State
                             </label>
                             <input type="text" value="Arizona, United States."
-                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10" />
                         </div>
 
                         <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                 Postal Code
                             </label>
                             <input type="text" value="ERT 2489"
-                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10" />
                         </div>
 
                         <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700">
                                 TAX ID
                             </label>
                             <input type="text" value="AS4568384"
-                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
+                                class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10" />
                         </div>
                     </div>
                 </div>
                 <div class="flex items-center gap-3 mt-6 lg:justify-end">
                     <button @click="isProfileAddressModal = false" type="button"
-                        class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] sm:w-auto">
+                        class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 sm:w-auto">
                         Close
                     </button>
                     <button type="button"

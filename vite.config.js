@@ -13,7 +13,6 @@ export default defineConfig({
         watch: {
             usePolling: true,
         },
-        open: true,
     },
     plugins: [
         laravel({
