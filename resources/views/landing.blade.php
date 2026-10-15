@@ -13,8 +13,12 @@
             @auth
                 <a href="{{ route('dashboard') }}">Ir al panel</a>
             @else
-                <a href="{{ route('login') }}">Iniciar sesión</a>
-                <a href="{{ route('register') }}" class="px-4 py-2 text-white bg-blue-600 rounded">Registrarse</a>
+                <a href="{{ route('login') }}" class="btn-ghost">
+                    Iniciar sesión
+                </a>
+                <a href="{{ route('register') }}" class="btn-primary">
+                    Registrarse
+                </a>
             @endauth
         </nav>
     </header>
