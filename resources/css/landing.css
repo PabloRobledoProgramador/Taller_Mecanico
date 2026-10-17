@@ -7,8 +7,8 @@
     background: #f1f0ec;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
-    --purple: #7654ff;
-    --purple-bright: #8c70ff;
+    --purple: #465fff;
+    --purple-bright: #7592ff;
     --ink: #111015;
     --paper: #f1f0ec;
 }
@@ -130,7 +130,7 @@ a {
 
 .button:hover {
     transform: translateY(-2px);
-    background: #6844fa;
+    background: #3641f5;
 }
 
 .button svg,
@@ -247,7 +247,7 @@ a {
 }
 
 .hero-content h1 span {
-    color: #9d83ff;
+    color: #9cb9ff;
 }
 
 .hero-content > p {
@@ -394,7 +394,7 @@ a {
     display: grid;
     place-items: center;
     color: var(--purple);
-    background: #e5e0ff;
+    background: #ecf3ff;
 }
 
 .module-icon svg {
@@ -458,7 +458,7 @@ a {
 }
 
 .kicker-dark {
-    color: #dcd4ff;
+    color: #ecf3ff;
 }
 
 .workflow-copy h2 {
@@ -468,7 +468,7 @@ a {
 .workflow-copy > p {
     max-width: 520px;
     margin: 30px 0 44px;
-    color: #ded8f6;
+    color: #dde9ff;
     font-size: 17px;
     line-height: 1.7;
 }

@@ -20,7 +20,7 @@
     <main>
         <header class="site-header">
             <a class="brand" href="{{ url('/') }}" aria-label="El Señor de los Tornillos, inicio">
-                <x-brand-mark class="brand-mark" />
+                <img class="brand-mark" src="{{ asset('favicon.svg') }}" alt="">
                 <span class="brand-name">El Señor <span>de los Tornillos</span></span>
             </a>
 
@@ -175,7 +175,7 @@
 
         <footer>
             <a class="brand footer-brand" href="{{ url('/') }}">
-                <x-brand-mark class="brand-mark" />
+                <img class="brand-mark" src="{{ asset('favicon.svg') }}" alt="">
                 <span class="brand-name">El Señor <span>de los Tornillos</span></span>
             </a>
             <p>Herramientas para los que hacen el trabajo.</p>
