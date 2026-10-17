@@ -1,0 +1,5 @@
+<svg {{ $attributes }} aria-hidden="true" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.6 5.5h16.8L44 17.2v13.6L32.4 42.5H15.6L4 30.8V17.2L15.6 5.5Z" fill="currentColor"/>
+    <path d="M17 15h14l4 4v10l-4 4H17l-4-4V19l4-4Z" fill="#111015"/>
+    <path d="m18.5 29.5 11-11" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

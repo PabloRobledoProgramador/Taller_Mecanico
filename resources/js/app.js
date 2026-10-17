@@ -2,7 +2,6 @@ import { createPopper } from "@popperjs/core";
 import "./bootstrap";
 import Alpine from "alpinejs";
 import ApexCharts from "apexcharts";
-import "./scroll-video";
 
 // flatpickr
 import flatpickr from "flatpickr";
