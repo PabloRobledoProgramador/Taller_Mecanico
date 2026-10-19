@@ -405,3 +405,25 @@ h1 {
     visibility: hidden;
     transition: visibility 0s linear 0.5s; /* espera a que termine el giro */
 }
+
+/* Tarjeta de un solo panel (forgot / reset password) */
+.auth-card.compact {
+    min-height: 500px;
+}
+
+.status-msg {
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 12px;
+    text-align: center;
+    color: #1a8f5a;
+    background: #e7ebf0;
+    box-shadow:
+        inset 4px 4px 8px rgba(163, 177, 198, 0.55),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.95);
+}
+
+a.switch-circle {
+    text-decoration: none;
+}

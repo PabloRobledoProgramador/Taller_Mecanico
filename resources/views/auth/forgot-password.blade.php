@@ -1,25 +1,51 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
+    @vite(['resources/css/auth.css', 'resources/js/auth.js'])
+</head>
+<body>
+    <div class="bg-circle bg1"></div>
+    <div class="bg-circle bg2"></div>
+    <div class="bg-circle bg3"></div>
+
+    <div class="auth-wrapper">
+        <div class="auth-card compact">
+            <div class="form-panel">
+                <div class="logo"><i class="fa-solid fa-key"></i></div>
+                <h1>¿Olvidaste tu contraseña?</h1>
+                <p class="subtitle">Escribe tu correo y te enviaremos un enlace para restablecerla</p>
+
+                @if (session('status'))
+                    <div class="status-msg">{{ session('status') }}</div>
+                @endif
+
+                <form method="POST" action="{{ route('password.email') }}">
+                    @csrf
+
+                    <div class="input-group">
+                        <div class="electric-glow"></div>
+                        <div class="electric-border"></div>
+                        <input type="email" id="forgotEmail" name="email" placeholder=" "
+                               value="{{ old('email') }}" autocomplete="username" required autofocus>
+                        <label for="forgotEmail">Correo electrónico</label>
+                        @error('email') <small class="error-msg">{{ $message }}</small> @enderror
+                    </div>
+
+                    <button type="submit" class="main-btn">ENVIAR ENLACE</button>
+                </form>
+
+                <div class="switch-area">
+                    <span>¿Ya la recordaste?</span>
+                    <a href="{{ route('login') }}" class="switch-circle">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</body>
+</html>
