@@ -57,7 +57,6 @@ Route::get('/bar-chart', function () {
     return view('pages.chart.bar-chart', ['title' => 'Bar Chart']);
 })->name('bar-chart');
 
-
 // ui elements pages
 Route::get('/alerts', function () {
     return view('pages.ui-elements.alerts', ['title' => 'Alerts']);

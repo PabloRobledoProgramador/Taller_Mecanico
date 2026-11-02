@@ -57,12 +57,14 @@
     @mouseleave="$store.sidebar.setHovered(false)">
     <!-- Logo Section -->
     <div class="pt-8 pb-7 flex items-center gap-2" :class="(!$store.sidebar.isExpanded && !$store.sidebar.isHovered && !$store.sidebar.isMobileOpen) ? 'justify-center' : 'justify-between'">
-        <a href="/">
-            <div class="hidden [.sidebar-expanded_&]:block">
-                <img class="dark:hidden" src="/images/logo/logo.svg" alt="Logo" width="150" height="40" />
-                <img class="hidden" src="/images/logo/logo-dark.svg" alt="Logo" width="150" height="40" />
+        <a href="/" class="flex items-center gap-2">
+            <div class="hidden [.sidebar-expanded_&]:flex items-center gap-2">
+                <img src="{{ asset('favicon.svg') }}" alt="" width="32" height="32" />
+                <span class="max-w-40 text-sm font-semibold leading-tight text-gray-900 dark:text-white">
+                    El Señor de los Tornillos
+                </span>
             </div>
-            <img class="block [.sidebar-expanded_&]:hidden" src="/images/logo/logo-icon.svg" alt="Logo" width="32" height="32" />
+            <img class="block [.sidebar-expanded_&]:hidden" src="{{ asset('favicon.svg') }}" alt="El Señor de los Tornillos" width="32" height="32" />
         </a>
     </div>
 

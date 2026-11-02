@@ -49,9 +49,9 @@
             </button>
 
             <!-- Logo (mobile only) -->
-            <a href="/" class="xl:hidden">
-                <img class="dark:hidden" src="/images/logo/logo.svg" alt="Logo" />
-                <img class="hidden" src="/images/logo/logo-dark.svg" alt="Logo" />
+            <a href="/" class="flex items-center gap-2 xl:hidden">
+                <img src="{{ asset('favicon.svg') }}" alt="" width="32" height="32" />
+                <span class="text-sm font-semibold text-gray-900 dark:text-white">El Señor de los Tornillos</span>
             </a>
 
             <!-- Application Menu Toggle (mobile only) -->
