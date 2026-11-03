@@ -9,6 +9,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\RepairController;
 use App\Http\Controllers\UserController;
+use App\Models\Customer;
+use App\Models\Repair;
 
 // Locale Switch Route
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
@@ -20,7 +22,42 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dashboard', function () {
-    return view ('pages.dashboard.ecommerce', ['title' => 'E-commerce Dashboard']);
+    $monthlyIncome = array_fill(0, 12, 0);
+    $monthlyTarget = 5000000; // Meta mensual en pesos.
+
+        $completedThisMonth = Repair::query()
+            ->where('status', 'completada')
+            ->whereYear('date', now()->year)
+            ->whereMonth('date', now()->month)
+            ->sum('total_cost');
+
+        $completedToday = Repair::query()
+            ->where('status', 'completada')
+            ->whereDate('date', today())
+            ->sum('total_cost');
+
+        $monthlyProgress = $monthlyTarget > 0
+            ? min(($completedThisMonth / $monthlyTarget) * 100, 100)
+            : 0;
+
+    Repair::query()
+        ->whereYear('date', now()->year)
+        ->get(['date', 'total_cost'])
+        ->each(function ($repair) use (&$monthlyIncome) {
+            $monthlyIncome[$repair->date->month - 1] += (float) $repair->total_cost;
+        });
+
+    return view('pages.dashboard.index', [
+        'title' => 'Panel del taller',
+        'customerCount' => Customer::count(),
+        'monthlyIncome' => $monthlyIncome,
+
+        // Para el Target mensual y progreso
+        'monthlyTarget' => $monthlyTarget,
+        'completedThisMonth' => $completedThisMonth,
+        'completedToday' => $completedToday,
+        'monthlyProgress' => $monthlyProgress,
+    ]);
 })->name('dashboard');
 
 // calender pages
@@ -134,7 +171,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
 
 
 

@@ -4,11 +4,15 @@ export const initChartOne = () => {
     const chartElement = document.querySelector('#chartOne');
     if (!chartElement) return;
 
+    const monthlyIncome = JSON.parse(chartElement.dataset.monthlyIncome);
+
     const chartOneOptions = {
-        series: [{
-            name: "Sales",
-            data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
-        },],
+        series: [
+            {
+                name: "Valor de reparaciones",
+                data: monthlyIncome,
+            },
+        ],
         colors: ["#465fff"],
         chart: {
             fontFamily: "Outfit, sans-serif",
@@ -36,18 +40,18 @@ export const initChartOne = () => {
         },
         xaxis: {
             categories: [
-                "Jan",
+                "Ene",
                 "Feb",
                 "Mar",
-                "Apr",
+                "Abr",
                 "May",
                 "Jun",
                 "Jul",
-                "Aug",
+                "Ago",
                 "Sep",
                 "Oct",
                 "Nov",
-                "Dec",
+                "Dic",
             ],
             axisBorder: {
                 show: false,
@@ -84,8 +88,12 @@ export const initChartOne = () => {
                 show: false,
             },
             y: {
-                formatter: function (val) {
-                    return val;
+                formatter: function (value) {
+                    return new Intl.NumberFormat("es-CO", {
+                        style: "currency",
+                        currency: "COP",
+                        maximumFractionDigits: 0,
+                    }).format(value);
                 },
             },
         },

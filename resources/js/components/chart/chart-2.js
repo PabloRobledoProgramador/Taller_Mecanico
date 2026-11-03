@@ -1,10 +1,10 @@
-
 export const initChartTwo = () => {
-    const chartElement = document.querySelector('#chartTwo');
+    const chartElement = document.querySelector("#chartTwo");
 
     if (chartElement) {
+        const progress = Number(chartElement.dataset.progress);
         const chartTwoOptions = {
-            series: [75.55],
+            series: [progress],
             colors: ["#465FFF"],
             chart: {
                 fontFamily: "Outfit, sans-serif",
@@ -56,6 +56,6 @@ export const initChartTwo = () => {
         chart.render();
         return chart;
     }
-}
+};
 
 export default initChartTwo;
