@@ -119,6 +119,8 @@ Route::middleware('auth')->group(function () {
     // Repair Routes
     Route::resource('repairs', RepairController::class)
         ->except(['show']);
+    Route::get('/repairs/{repair}/pdf', [RepairController::class, 'downloadPdf'])
+    ->name('repairs.pdf');
 
     // User Routes
     Route::resource('users', UserController::class)
@@ -127,6 +129,8 @@ Route::middleware('auth')->group(function () {
     // Calendar Events Route
     Route::get('/calendar/events', [RepairController::class, 'calendarEvents'])
     ->name('calendar.events');
+
+
 });
 
 require __DIR__.'/auth.php';

@@ -8,6 +8,7 @@ use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /*Para el calendario*/
 use Illuminate\Http\JsonResponse;
@@ -129,5 +130,16 @@ class RepairController extends Controller
             ]);
 
         return response()->json($repairs);
+    }
+
+    public function downloadPdf(Repair $repair)
+    {
+        $repair->load(['vehicle.customer', 'mechanic']);
+
+        return Pdf::loadView('pages.repairs.pdf', [
+            'repair' => $repair,
+        ])
+            ->setPaper('a4', 'portrait')
+            ->download('reparacion-' . $repair->id . '.pdf');
     }
 }

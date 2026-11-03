@@ -7,7 +7,7 @@
         <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h2 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                    Reparaciones registradas
+                    Registradas
                 </h2>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     {{ $repairs->total() }} en total
@@ -107,6 +107,12 @@
                                             class="text-theme-sm font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
                                         >
                                             Editar
+                                        </a>
+                                        <a
+                                            href="{{ route('repairs.pdf', $repair) }}"
+                                            class="text-theme-sm font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+                                        >
+                                            Descargar PDF
                                         </a>
 
                                         <form

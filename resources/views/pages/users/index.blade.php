@@ -7,7 +7,7 @@
         <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h2 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                    Usuarios registrados
+                    Registrados
                 </h2>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     {{ $users->total() }} en total
