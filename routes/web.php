@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocaleController;
 
+// CRUDs CONTROLLERS
+use App\Http\Controllers\CustomerController;
+
 // Locale Switch Route
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
 use App\Http\Controllers\DashboardController;
@@ -36,6 +39,9 @@ Route::get('/form-elements', function () {
 Route::get('/basic-tables', function () {
     return view('pages.tables.basic-tables', ['title' => 'Basic Tables']);
 })->name('basic-tables');
+
+
+
 
 // pages
 
@@ -82,10 +88,27 @@ Route::get('/videos', function () {
     return view('pages.ui-elements.videos', ['title' => 'Videos']);
 })->name('videos');
 
+
+// Authenticated Routes
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    // Customer Routes
+    Route::get('/customers', [CustomerController::class, 'index'])
+        ->name('customers.index');
+    Route::get('/customers/create', [CustomerController::class, 'create'])
+        ->name('customers.create');
+    Route::post('/customers', [CustomerController::class, 'store'])
+        ->name('customers.store');
+    Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])
+        ->name('customers.edit');
+    Route::put('/customers/{customer}', [CustomerController::class, 'update'])
+        ->name('customers.update');
+    Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])
+        ->name('customers.destroy');
 });
 
 require __DIR__.'/auth.php';
