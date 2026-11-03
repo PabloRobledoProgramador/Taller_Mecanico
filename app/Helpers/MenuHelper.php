@@ -62,6 +62,11 @@ class MenuHelper
                 'name' => 'Reparaciones',
                 'path' => '/repairs',
             ],
+            [
+                'icon' => 'user-profile',
+                'name' => 'Usuarios',
+                'path' => '/users',
+            ],
         ];
     }
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\RepairController;
+use App\Http\Controllers\UserController;
 
 // Locale Switch Route
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
@@ -117,6 +118,10 @@ Route::middleware('auth')->group(function () {
 
     // Repair Routes
     Route::resource('repairs', RepairController::class)
+        ->except(['show']);
+
+    // User Routes
+    Route::resource('users', UserController::class)
         ->except(['show']);
 });
 
