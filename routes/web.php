@@ -57,6 +57,9 @@ Route::get('/dashboard', function () {
         'completedThisMonth' => $completedThisMonth,
         'completedToday' => $completedToday,
         'monthlyProgress' => $monthlyProgress,
+
+        // Para el listado de reparaciones recientes
+        'repairCount' => Repair::count(),
     ]);
 })->name('dashboard');
 

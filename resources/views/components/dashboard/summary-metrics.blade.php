@@ -1,4 +1,4 @@
-@props(['customerCount'])
+@props(['customerCount', 'repairCount'])
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
     <div
@@ -57,10 +57,13 @@
         </svg>
       </div>
 
-      <div class="flex items-end justify-between mt-5">
-        <div>
-          <span class="text-sm text-gray-500">Orders</span>
-          <h4 class="mt-2 font-bold text-gray-800 text-title-sm">5,359</h4>
+        <div class="mt-5">
+            <div>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Reparaciones registradas</span>
+                <h4 class="mt-2 text-title-sm font-bold text-gray-800 dark:text-white/90">
+                    {{ number_format($repairCount, 0, ',', '.') }}
+                </h4>
+            </div>
         </div>
 
         <span
@@ -81,9 +84,7 @@
               fill=""
             />
           </svg>
-
-          9.05%
-        </span>
+          
       </div>
     </div>
   </div>
