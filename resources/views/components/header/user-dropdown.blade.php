@@ -58,15 +58,21 @@
 }" @click.outside="closeDropdown()">
     <!-- User Trigger -->
     <button
-        class="flex items-center text-gray-700"
+        class="flex items-center text-gray-700 dark:text-gray-300"
         type="button"
         @click="toggleDropdown()"
     >
         <span class="mr-3 overflow-hidden rounded-full h-11 w-11 rtl:mr-0 rtl:ml-3">
-            <img src="/images/user/owner.png" alt="User" />
+                <img
+                src="{{ auth()->user()?->profile_photo_path
+                    ? asset('storage/' . auth()->user()->profile_photo_path)
+                    : asset('images/user/owner.png') }}"
+                alt="Foto de perfil"
+                class="h-full w-full object-cover"
+                />
         </span>
 
-        <span class="block mr-1 font-medium text-theme-sm rtl:mr-0 rtl:ml-1">Musharof</span>
+        <span class="block mr-1 font-medium text-theme-sm rtl:mr-0 rtl:ml-1">{{ auth()->user()->name }}</span>
 
         <!-- Chevron Down Icon -->
         <svg

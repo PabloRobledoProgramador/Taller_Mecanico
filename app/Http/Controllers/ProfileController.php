@@ -7,7 +7,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+
 
 class ProfileController extends Controller
 {
@@ -21,20 +23,37 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
+        $data = $request->validated();
+        $photo = $data['photo'] ?? null;
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        unset($data['photo']);
+
+        // Solo actualiza el nombre; el correo queda intacto.
+        $user->fill($data);
+
+        $oldPhotoPath = $user->profile_photo_path;
+
+        if ($photo) {
+            $newPhotoPath = $photo->store('profile-photos', 'public');
+
+            if ($newPhotoPath === false) {
+                throw new \RuntimeException('No se pudo guardar la foto de perfil.');
+            }
+
+            $user->profile_photo_path = $newPhotoPath;
         }
 
-        $request->user()->save();
+        $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        if ($photo && $oldPhotoPath) {
+            Storage::disk('public')->delete($oldPhotoPath);
+        }
+
+        return Redirect::route('profile.edit')
+            ->with('status', 'profile-updated');
     }
 
     /**

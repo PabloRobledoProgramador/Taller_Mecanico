@@ -1,5 +1,5 @@
 <div>
-    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
         <div class="custom-calendar relative">
             <div id="calendar"></div>
         </div>
@@ -22,7 +22,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h5 class="mb-2 font-semibold text-gray-800 modal-title text-theme-xl lg:text-2xl" id="eventModalLabel">
-                        Add Event
+                        Añadir Evento
                     </h5>
                     <p class="text-sm text-gray-500">
                         Plan your next big moment: schedule or edit an event to stay on track
