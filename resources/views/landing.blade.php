@@ -152,8 +152,8 @@
                 <div class="step">
                     <span>03</span>
                     <div>
-                        <h3>Cierra y continúa</h3>
-                        <p>Deja el historial completo y pasa a la siguiente reparación.</p>
+                        <h3>Modo Oscuro</h3>
+                        <p>Si la vista le fastidia, le metimos a la funcionalidad de modo oscuro</p>
                     </div>
                 </div>
             </div>
