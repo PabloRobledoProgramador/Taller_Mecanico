@@ -57,6 +57,11 @@ class MenuHelper
                 'name' => 'Vehículos',
                 'path' => '/vehicles',
             ],
+            [
+                'icon' => 'forms',
+                'name' => 'Reparaciones',
+                'path' => '/repairs',
+            ],
         ];
     }
 

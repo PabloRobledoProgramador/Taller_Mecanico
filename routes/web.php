@@ -7,6 +7,7 @@ use App\Http\Controllers\LocaleController;
 // CRUDs CONTROLLERS
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\RepairController;
 
 // Locale Switch Route
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
@@ -113,6 +114,10 @@ Route::middleware('auth')->group(function () {
 
     // Vehicle Routes
     Route::resource('vehicles', VehicleController::class);
+
+    // Repair Routes
+    Route::resource('repairs', RepairController::class)
+        ->except(['show']);
 });
 
 require __DIR__.'/auth.php';
