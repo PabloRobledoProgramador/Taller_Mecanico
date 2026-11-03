@@ -120,9 +120,26 @@
 
                                             <button
                                                 type="submit"
-                                                class="text-theme-sm font-medium text-error-500 hover:text-error-600"
+                                                aria-label="Eliminar cliente {{ $customer->name }}"
+                                                title="Eliminar cliente"
+                                                class="inline-flex items-center justify-center rounded-lg p-2 text-error-500 hover:bg-error-50 hover:text-error-600 dark:hover:bg-error-500/10"
                                             >
-                                                Eliminar
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="1.5"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    aria-hidden="true"
+                                                >
+                                                    <path d="M3 6h18" />
+                                                    <path d="M8 6V4h8v2" />
+                                                    <path d="m19 6-1 14H6L5 6" />
+                                                    <path d="M10 11v5M14 11v5" />
+                                                </svg>
                                             </button>
                                         </form>
                                     </div>
