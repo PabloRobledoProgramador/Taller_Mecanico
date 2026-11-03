@@ -1,5 +1,5 @@
 <div>
-    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
         <div class="custom-calendar relative">
             <div id="calendar"></div>
         </div>

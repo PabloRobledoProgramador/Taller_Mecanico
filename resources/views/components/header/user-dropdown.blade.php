@@ -58,7 +58,7 @@
 }" @click.outside="closeDropdown()">
     <!-- User Trigger -->
     <button
-        class="flex items-center text-gray-700"
+        class="flex items-center text-gray-700 dark:text-gray-300"
         type="button"
         @click="toggleDropdown()"
     >
