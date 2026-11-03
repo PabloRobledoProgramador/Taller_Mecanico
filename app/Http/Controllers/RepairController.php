@@ -7,6 +7,10 @@ use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Carbon;
+
+/*Para el calendario*/
+use Illuminate\Http\JsonResponse;
 
 class RepairController extends Controller
 {
@@ -44,11 +48,14 @@ class RepairController extends Controller
         $data = $request->validate([
             'vehicle_id' => ['required', 'integer', 'exists:vehicles,id'],
             'mechanic_id' => ['nullable', 'integer', 'exists:users,id'],
-            'date' => ['required', 'date'],
+            'starts_at' => ['required', 'date'],
+            'ends_at' => ['required', 'date', 'after:starts_at'],
             'status' => ['required', Rule::in(array_keys(self::STATUSES))],
             'job_description' => ['required', 'string'],
             'total_cost' => ['required', 'numeric', 'min:0', 'max:99999999.99'],
         ]);
+
+        $data['date'] = Carbon::parse($data['starts_at'])->toDateString();
 
         Repair::create($data);
 
@@ -67,16 +74,20 @@ class RepairController extends Controller
         ]);
     }
 
+
     public function update(Request $request, Repair $repair)
     {
         $data = $request->validate([
             'vehicle_id' => ['required', 'integer', 'exists:vehicles,id'],
             'mechanic_id' => ['nullable', 'integer', 'exists:users,id'],
-            'date' => ['required', 'date'],
+            'starts_at' => ['required', 'date'],
+            'ends_at' => ['required', 'date', 'after:starts_at'],
             'status' => ['required', Rule::in(array_keys(self::STATUSES))],
             'job_description' => ['required', 'string'],
             'total_cost' => ['required', 'numeric', 'min:0', 'max:99999999.99'],
         ]);
+
+        $data['date'] = Carbon::parse($data['starts_at'])->toDateString();
 
         $repair->update($data);
 
@@ -92,5 +103,31 @@ class RepairController extends Controller
         return redirect()
             ->route('repairs.index')
             ->with('success', 'Reparación eliminada.');
+    }
+
+    /*Para el Calendario*/
+    public function calendarEvents(): JsonResponse
+    {
+        $repairs = Repair::with(['vehicle.customer', 'mechanic'])
+            ->whereNotNull('starts_at')
+            ->whereNotNull('ends_at')
+            ->get()
+            ->map(fn (Repair $repair) => [
+                'id' => $repair->id,
+                'title' => trim(
+                    ($repair->vehicle?->license_plate ?? 'Vehículo') . ' — ' .
+                    ($repair->vehicle?->customer?->name ?? 'Cliente sin nombre')
+                ),
+                'start' => $repair->starts_at->toIso8601String(),
+                'end' => $repair->ends_at->toIso8601String(),
+                'url' => route('repairs.edit', $repair),
+                'extendedProps' => [
+                    'status' => $repair->status,
+                    'description' => $repair->job_description,
+                    'mechanic' => $repair->mechanic?->name,
+                ],
+            ]);
+
+        return response()->json($repairs);
     }
 }

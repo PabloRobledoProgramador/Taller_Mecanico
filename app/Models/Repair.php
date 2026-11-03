@@ -11,6 +11,8 @@ class Repair extends Model
         'vehicle_id',
         'mechanic_id',
         'date',
+        'starts_at',
+        'ends_at',
         'status',
         'job_description',
         'total_cost',
@@ -20,6 +22,8 @@ class Repair extends Model
     {
         return [
             'date' => 'date',
+            'starts_at' => 'datetime',
+            'ends_at' => 'datetime',
             'total_cost' => 'decimal:2',
         ];
     }

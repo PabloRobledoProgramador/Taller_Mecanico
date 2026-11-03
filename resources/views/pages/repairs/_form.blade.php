@@ -57,20 +57,39 @@
 </div>
 
 <div>
-    <label for="date" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">
-        Fecha
+    <label for="starts_at" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">
+        Inicio
     </label>
 
     <input
-        id="date"
-        name="date"
-        type="date"
-        value="{{ old('date', $repair->date?->format('Y-m-d') ?? now()->format('Y-m-d')) }}"
+        id="starts_at"
+        name="starts_at"
+        type="datetime-local"
+        value="{{ old('starts_at', $repair->starts_at?->format('Y-m-d\\TH:i') ?? now()->format('Y-m-d\\TH:i')) }}"
         required
         class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90"
     >
 
-    @error('date')
+    @error('starts_at')
+        <p class="mt-1 text-sm text-error-500">{{ $message }}</p>
+    @enderror
+</div>
+
+<div>
+    <label for="ends_at" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">
+        Fin
+    </label>
+
+    <input
+        id="ends_at"
+        name="ends_at"
+        type="datetime-local"
+        value="{{ old('ends_at', $repair->ends_at?->format('Y-m-d\\TH:i') ?? now()->addHour()->format('Y-m-d\\TH:i')) }}"
+        required
+        class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90"
+    >
+
+    @error('ends_at')
         <p class="mt-1 text-sm text-error-500">{{ $message }}</p>
     @enderror
 </div>

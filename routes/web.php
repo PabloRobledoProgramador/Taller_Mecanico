@@ -123,6 +123,10 @@ Route::middleware('auth')->group(function () {
     // User Routes
     Route::resource('users', UserController::class)
         ->except(['show']);
+
+    // Calendar Events Route
+    Route::get('/calendar/events', [RepairController::class, 'calendarEvents'])
+    ->name('calendar.events');
 });
 
 require __DIR__.'/auth.php';
