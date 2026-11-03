@@ -30,12 +30,12 @@
             <table class="min-w-full">
                 <thead>
                     <tr class="border-t border-gray-100 dark:border-gray-800">
-                        <th class="py-3 text-start text-xs font-medium text-gray-500">Vehículo</th>
-                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500">Cliente</th>
-                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500">Fecha</th>
-                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500">Estado</th>
-                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500">Mecánico</th>
-                        <th class="px-4 py-3 text-end text-xs font-medium text-gray-500">Costo</th>
+                        <th class="py-3 text-start text-xs font-medium text-gray-500 dark:text-gray-400">Vehículo</th>
+                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500 dark:text-gray-400">Cliente</th>
+                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500 dark:text-gray-400">Fecha</th>
+                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500 dark:text-gray-400">Estado</th>
+                        <th class="px-4 py-3 text-start text-xs font-medium text-gray-500 dark:text-gray-400">Mecánico</th>
+                        <th class="px-4 py-3 text-end text-xs font-medium text-gray-500 dark:text-gray-400">Costo</th>
                     </tr>
                 </thead>
 
