@@ -46,6 +46,17 @@ class MenuHelper
                     ['name' => '404 Error', 'path' => '/error-404', 'pro' => false]
                 ],
             ],
+            // CRUDS
+            [
+                'icon' => 'user-profile',
+                'name' => 'Clientes',
+                'path' => '/customers',
+            ],
+            [
+                'icon' => 'ecommerce',
+                'name' => 'Vehículos',
+                'path' => '/vehicles',
+            ],
         ];
     }
 
