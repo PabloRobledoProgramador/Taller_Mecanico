@@ -63,10 +63,16 @@
         @click="toggleDropdown()"
     >
         <span class="mr-3 overflow-hidden rounded-full h-11 w-11 rtl:mr-0 rtl:ml-3">
-            <img src="/images/user/owner.png" alt="User" />
+                <img
+                src="{{ auth()->user()?->profile_photo_path
+                    ? asset('storage/' . auth()->user()->profile_photo_path)
+                    : asset('images/user/owner.png') }}"
+                alt="Foto de perfil"
+                class="h-full w-full object-cover"
+                />
         </span>
 
-        <span class="block mr-1 font-medium text-theme-sm rtl:mr-0 rtl:ml-1">Musharof</span>
+        <span class="block mr-1 font-medium text-theme-sm rtl:mr-0 rtl:ml-1">{{ auth()->user()->name }}</span>
 
         <!-- Chevron Down Icon -->
         <svg
