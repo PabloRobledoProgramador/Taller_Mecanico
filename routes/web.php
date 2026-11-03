@@ -57,6 +57,12 @@ Route::get('/dashboard', function () {
             $monthlyRepairCounts[$repair->date->month - 1]++;
         });
     
+    
+        $recentRepairs = Repair::with(['vehicle.customer', 'mechanic'])
+            ->orderByDesc('created_at')
+            ->take(5)
+            ->get();
+
     return view('pages.dashboard.index', [
         'title' => 'Panel del taller',
         'customerCount' => Customer::count(),
@@ -74,6 +80,9 @@ Route::get('/dashboard', function () {
 
         // Para estadísticas de reparaciones mensuales
         'monthlyRepairCounts' => $monthlyRepairCounts,
+
+        // Para el listado de reparaciones recientes
+        'recentRepairs' => $recentRepairs,
 
         
     ]);
