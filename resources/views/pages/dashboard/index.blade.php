@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-span-12">
-            <x-ecommerce.statistics-chart />
+            <x-ecommerce.statistics-chart :monthlyRepairCounts="$monthlyRepairCounts" />
         </div>
 
         <div class="col-span-12 xl:col-span-5">

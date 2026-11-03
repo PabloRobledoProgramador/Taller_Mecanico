@@ -47,6 +47,16 @@ Route::get('/dashboard', function () {
             $monthlyIncome[$repair->date->month - 1] += (float) $repair->total_cost;
         });
 
+        // Para estadísticas de reparaciones mensuales
+        $monthlyRepairCounts = array_fill(0, 12, 0);
+
+    Repair::query()
+        ->whereYear('date', now()->year)
+        ->get(['date'])
+        ->each(function ($repair) use (&$monthlyRepairCounts) {
+            $monthlyRepairCounts[$repair->date->month - 1]++;
+        });
+    
     return view('pages.dashboard.index', [
         'title' => 'Panel del taller',
         'customerCount' => Customer::count(),
@@ -60,6 +70,12 @@ Route::get('/dashboard', function () {
 
         // Para el listado de reparaciones recientes
         'repairCount' => Repair::count(),
+
+
+        // Para estadísticas de reparaciones mensuales
+        'monthlyRepairCounts' => $monthlyRepairCounts,
+
+        
     ]);
 })->name('dashboard');
 

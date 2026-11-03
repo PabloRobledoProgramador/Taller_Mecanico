@@ -1,17 +1,16 @@
-
 export const initChartThree = () => {
-    const chartElement = document.querySelector('#chartThree');
+    const chartElement = document.querySelector("#chartThree");
 
     if (chartElement) {
+        const monthlyRepairCounts = JSON.parse(
+            chartElement.dataset.monthlyRepairCounts,
+        );
         const chartThreeOptions = {
-            series: [{
-                name: "Sales",
-                data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
-            },
-            {
-                name: "Revenue",
-                data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
-            },
+            series: [
+                {
+                    name: "Reparaciones",
+                    data: monthlyRepairCounts,
+                },
             ],
             legend: {
                 show: false,
@@ -68,18 +67,18 @@ export const initChartThree = () => {
             xaxis: {
                 type: "category",
                 categories: [
-                    "Jan",
+                    "Ene",
                     "Feb",
                     "Mar",
-                    "Apr",
+                    "Abr",
                     "May",
                     "Jun",
                     "Jul",
-                    "Aug",
+                    "Ago",
                     "Sep",
                     "Oct",
                     "Nov",
-                    "Dec",
+                    "Dic",
                 ],
                 axisBorder: {
                     show: false,
@@ -102,6 +101,6 @@ export const initChartThree = () => {
         chart.render();
         return chart;
     }
-}
+};
 
 export default initChartThree;
