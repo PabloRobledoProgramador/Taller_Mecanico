@@ -41,6 +41,32 @@
 </div>
 
 <div>
+    <label for="role" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">
+        Rol
+    </label>
+
+    <select
+        id="role"
+        name="role"
+        required
+        class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90"
+    >
+        @foreach (\App\Enums\Role::cases() as $role)
+            <option
+                value="{{ $role->value }}"
+                @selected(old('role', $user->role?->value ?? 'cliente') === $role->value)
+            >
+                {{ $role->label() }}
+            </option>
+        @endforeach
+    </select>
+
+    @error('role')
+        <p class="mt-1 text-sm text-error-500">{{ $message }}</p>
+    @enderror
+</div>
+
+<div>
     <label for="password" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">
         {{ $isEditing ? 'Nueva contraseña (opcional)' : 'Contraseña' }}
     </label>
@@ -49,7 +75,7 @@
         id="password"
         name="password"
         type="password"
-        autocomplete="{{ $isEditing ? 'new-password' : 'new-password' }}"
+        autocomplete="new-password"
         @if (!$isEditing) required @endif
         minlength="8"
         class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90"

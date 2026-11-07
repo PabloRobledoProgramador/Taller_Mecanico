@@ -3,8 +3,29 @@
 namespace App\Helpers;
 
 class MenuHelper
-{
-    public static function getMenuGroups()
+{    public static function getMenuGroups()
+    {
+        $user = auth()->user();
+        $soloAdmin = ['/users'];
+
+        return collect(self::allMenuGroups())
+            ->map(function ($group) use ($user, $soloAdmin) {
+                $group['items'] = array_values(array_filter($group['items'], function ($item) use ($user, $soloAdmin) {
+                    if (! $user || $user->isCliente()) {
+                        return false;
+                    }
+                    if (in_array($item['path'], $soloAdmin)) {
+                        return $user->isAdmin();
+                    }
+                    return true;
+                }));
+                return $group;
+            })
+            ->filter(fn ($group) => count($group['items']) > 0)
+            ->values()
+            ->all();
+    }
+    public static function allMenuGroups()
     {
         return [
             [

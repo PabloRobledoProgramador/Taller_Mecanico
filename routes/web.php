@@ -9,6 +9,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\RepairController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificationController;
 use App\Models\Customer;
 use App\Models\Repair;
 
@@ -22,6 +23,11 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dashboard', function () {
+    // Los clientes no ven el panel del taller: van a su perfil.
+    if (auth()->user()->isCliente()) {
+        return redirect()->route('profile.edit');
+    }
+
     $monthlyIncome = array_fill(0, 12, 0);
     $monthlyTarget = 5000000; // Meta mensual en pesos.
 
@@ -86,12 +92,12 @@ Route::get('/dashboard', function () {
 
         
     ]);
-})->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 // calender pages
 Route::get('/calendar', function () {
     return view('pages.calender', ['title' => 'Calendar']);
-})->name('calendar');
+})->middleware(['auth', 'verified', 'role:admin,mecanico'])->name('calendar');
 
 // profile pages
 Route::get('/profile', function () {
@@ -157,13 +163,20 @@ Route::get('/videos', function () {
 })->name('videos');
 
 
-// Authenticated Routes
+// Authenticated Routes (cualquier rol)
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
+    // Notificaciones
+    Route::get('/notifications/{id}/read', [NotificationController::class, 'read'])->name('notifications.read');
+    Route::post('/notifications/read-all', [NotificationController::class, 'readAll'])->name('notifications.read-all');
+});
+
+// Rutas del taller: solo admin y mecánico
+Route::middleware(['auth', 'verified', 'role:admin,mecanico'])->group(function () {
     // Customer Routes
     Route::get('/customers', [CustomerController::class, 'index'])
         ->name('customers.index');
@@ -187,34 +200,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/repairs/{repair}/pdf', [RepairController::class, 'downloadPdf'])
     ->name('repairs.pdf');
 
-    // User Routes
-    Route::resource('users', UserController::class)
-        ->except(['show']);
-
     // Calendar Events Route
     Route::get('/calendar/events', [RepairController::class, 'calendarEvents'])
     ->name('calendar.events');
+});
 
-
+// Administración: solo admin
+Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+    // User Routes
+    Route::resource('users', UserController::class)
+        ->except(['show']);
 });
 
 require __DIR__.'/auth.php';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
