@@ -4,13 +4,12 @@ namespace App\Models;
 
 use App\Enums\Role;
 use App\Notifications\RoleChangedNotification;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -66,11 +65,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isMecanico(): bool
     {
         return $this->hasRole(Role::Mecanico);
-    }
-
-    public function isCliente(): bool
-    {
-        return $this->hasRole(Role::Cliente);
     }
 
     /**

@@ -23,11 +23,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dashboard', function () {
-    // Los clientes no ven el panel del taller: van a su perfil.
-    if (auth()->user()->isCliente()) {
-        return redirect()->route('profile.edit');
-    }
-
     $monthlyIncome = array_fill(0, 12, 0);
     $monthlyTarget = 5000000; // Meta mensual en pesos.
 
@@ -92,12 +87,12 @@ Route::get('/dashboard', function () {
 
         
     ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware('auth')->name('dashboard');
 
 // calender pages
 Route::get('/calendar', function () {
     return view('pages.calender', ['title' => 'Calendar']);
-})->middleware(['auth', 'verified', 'role:admin,mecanico'])->name('calendar');
+})->middleware(['auth', 'role:admin,mecanico'])->name('calendar');
 
 // profile pages
 Route::get('/profile', function () {
@@ -176,7 +171,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rutas del taller: solo admin y mecánico
-Route::middleware(['auth', 'verified', 'role:admin,mecanico'])->group(function () {
+Route::middleware(['auth', 'role:admin,mecanico'])->group(function () {
     // Customer Routes
     Route::get('/customers', [CustomerController::class, 'index'])
         ->name('customers.index');
@@ -206,7 +201,7 @@ Route::middleware(['auth', 'verified', 'role:admin,mecanico'])->group(function (
 });
 
 // Administración: solo admin
-Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     // User Routes
     Route::resource('users', UserController::class)
         ->except(['show']);

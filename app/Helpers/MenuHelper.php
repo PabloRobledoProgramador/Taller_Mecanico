@@ -11,7 +11,7 @@ class MenuHelper
         return collect(self::allMenuGroups())
             ->map(function ($group) use ($user, $soloAdmin) {
                 $group['items'] = array_values(array_filter($group['items'], function ($item) use ($user, $soloAdmin) {
-                    if (! $user || $user->isCliente()) {
+                    if (! $user) {
                         return false;
                     }
                     if (in_array($item['path'], $soloAdmin)) {
