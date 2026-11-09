@@ -37,10 +37,6 @@
                     </a>
                 @else
                     <a class="login-link" href="{{ route('login') }}">Iniciar sesión</a>
-                    <a class="button button-small" href="{{ route('register') }}">
-                        Registrarse
-                        <x-arrow-icon />
-                    </a>
                 @endauth
             </div>
         </header>
@@ -169,7 +165,6 @@
                     Iniciar sesión
                     <x-arrow-icon />
                 </a>
-                <a class="text-link text-link-light" href="{{ route('register') }}">Solicitar acceso</a>
             </div>
         </section>
 

@@ -6,15 +6,17 @@ use App\Notifications\RoleChangedNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
-test('un usuario que se registra queda como mecanico', function () {
+test('el registro publico esta cerrado', function () {
+    $this->get('/register')->assertNotFound();
+
     $this->post('/register', [
         'name' => 'Nuevo',
         'email' => 'nuevo@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
-    ]);
+    ])->assertNotFound();
 
-    expect(User::where('email', 'nuevo@example.com')->first()->role)->toBe(Role::Mecanico);
+    expect(User::where('email', 'nuevo@example.com')->exists())->toBeFalse();
 });
 
 test('no se puede asignar el rol por mass assignment', function () {

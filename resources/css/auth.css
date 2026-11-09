@@ -406,9 +406,15 @@ h1 {
     transition: visibility 0s linear 0.5s; /* espera a que termine el giro */
 }
 
-/* Tarjeta de un solo panel (forgot / reset password) */
+/* Tarjeta de un solo panel (login / forgot / reset password):
+   se ajusta sola al contenido */
 .auth-card.compact {
-    min-height: 500px;
+    min-height: 0;
+}
+
+.auth-card.compact .form-panel {
+    position: relative;
+    inset: auto;
 }
 
 .status-msg {
