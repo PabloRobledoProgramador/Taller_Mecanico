@@ -14,7 +14,7 @@ body {
     align-items: center;
     background: #e7ebf0;
     overflow: hidden;
-    scrollbar-width: 0.7;
+    scrollbar-width: thin;
 }
 
 /* Background */
