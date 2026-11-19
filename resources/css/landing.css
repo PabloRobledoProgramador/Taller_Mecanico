@@ -768,3 +768,84 @@ footer > span {
 .access-section {
     scroll-margin-top: 92px;
 }
+
+/* ---------- Ubicación (Google Maps) ---------- */
+.location-section {
+    padding: 130px clamp(24px, 6.5vw, 104px) 150px;
+    background: var(--paper);
+    scroll-margin-top: 92px;
+}
+
+.location-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.7fr 0.8fr;
+    gap: 24px;
+}
+
+.map-frame {
+    position: relative;
+    min-height: 460px;
+    overflow: hidden;
+    border: 1px solid #cbc9c4;
+    background: #e4e2dd;
+}
+
+.map {
+    position: absolute;
+    inset: 0;
+}
+
+.map-fallback {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #706e74;
+    font-size: 17px;
+}
+
+.map-fallback[hidden] {
+    display: none;
+}
+
+.location-card {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    color: white;
+    background: var(--ink);
+}
+
+.location-card h3 {
+    margin: 22px 0 12px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.location-card p {
+    margin: 0;
+    color: #9f9ca5;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-frame {
+        min-height: 360px;
+    }
+}

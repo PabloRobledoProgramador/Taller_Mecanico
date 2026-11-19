@@ -43,3 +43,59 @@ if (historia && video) {
             video.src = URL.createObjectURL(blob);
         });
 }
+
+// Mapa de Google Maps con la ubicación del taller.
+const mapa = document.querySelector("[data-map]");
+
+if (mapa) {
+    const { lat, lng, title, key } = mapa.dataset;
+    const aviso = document.querySelector("[data-map-fallback]");
+
+    const mostrarAviso = () => {
+        mapa.hidden = true;
+        if (aviso) aviso.hidden = false;
+    };
+
+    if (!key) {
+        mostrarAviso();
+    } else {
+        // Google llama a esta función si la clave es inválida o está mal restringida.
+        window.gm_authFailure = mostrarAviso;
+
+        // Google llama a esta función cuando termina de cargar su script.
+        window.iniciarMapa = async () => {
+            try {
+                const centro = { lat: Number(lat), lng: Number(lng) };
+                const { Map } = await google.maps.importLibrary("maps");
+                const { AdvancedMarkerElement } =
+                    await google.maps.importLibrary("marker");
+
+                const mapaGoogle = new Map(mapa, {
+                    center: centro,
+                    zoom: 15,
+                    mapId: "DEMO_MAP_ID",
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                });
+
+                new AdvancedMarkerElement({
+                    map: mapaGoogle,
+                    position: centro,
+                    title,
+                });
+            } catch (error) {
+                console.error("No se pudo mostrar el mapa:", error);
+                mostrarAviso();
+            }
+        };
+
+        const script = document.createElement("script");
+        script.src =
+            "https://maps.googleapis.com/maps/api/js?key=" +
+            encodeURIComponent(key) +
+            "&loading=async&callback=iniciarMapa";
+        script.async = true;
+        script.onerror = mostrarAviso;
+        document.head.appendChild(script);
+    }
+}

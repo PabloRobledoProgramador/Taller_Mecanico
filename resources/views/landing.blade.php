@@ -15,6 +15,15 @@
             ['03', 'Servicio de Reparaciones', 'Planifica y gestiona el proceso de reparación de vehículos.', 'M12 7v5l3 2m6-2a9 9 0 1 1-3-6.7M18 2v4h4'],
             ['04', 'Calendario', 'Ay papá. Hasta calendario le metimos', 'M3 3v18h18V3H3Zm0 0 9 9 9-9M3 21v-6h18v6H3Z'],
         ];
+
+        // Ubicación de ejemplo del taller (Malabo, Guinea Ecuatorial).
+        $ubicacion = [
+            'nombre' => 'El Señor de los Tornillos',
+            'ciudad' => 'Malabo, Guinea Ecuatorial',
+            'lat' => 3.7523,
+            'lng' => 8.7741,
+        ];
+        $rutaUrl = 'https://www.google.com/maps/search/?api=1&query='.$ubicacion['lat'].','.$ubicacion['lng'];
     @endphp
 
     <main>
@@ -27,6 +36,7 @@
             <nav class="main-nav" aria-label="Navegación principal">
                 <a href="#CRUDS">CRUDS</a>
                 <a href="#Extra">Extra</a>
+                <a href="#ubicacion">Ubicación</a>
             </nav>
 
             <div class="header-actions">
@@ -37,10 +47,6 @@
                     </a>
                 @else
                     <a class="login-link" href="{{ route('login') }}">Iniciar sesión</a>
-                    <a class="button button-small" href="{{ route('register') }}">
-                        Registrarse
-                        <x-arrow-icon />
-                    </a>
                 @endauth
             </div>
         </header>
@@ -159,6 +165,48 @@
             </div>
         </section>
 
+        <section class="location-section" id="ubicacion">
+            <div class="section-heading">
+                <div>
+                    <span class="kicker">Ubicación</span>
+                    <h2>Dónde encontrarnos</h2>
+                </div>
+                <p>
+                    Visítanos en el taller. Aquí te mostramos dónde estamos.
+                </p>
+            </div>
+
+            <div class="location-grid">
+                <div class="map-frame">
+                    <div
+                        class="map"
+                        data-map
+                        data-lat="{{ $ubicacion['lat'] }}"
+                        data-lng="{{ $ubicacion['lng'] }}"
+                        data-title="{{ $ubicacion['nombre'] }}"
+                        data-key="{{ config('services.google_maps.key') }}"
+                        role="img"
+                        aria-label="Mapa con la ubicación del taller"
+                    ></div>
+                    <p class="map-fallback" data-map-fallback hidden>
+                        No pudimos cargar el mapa en este momento.
+                    </p>
+                </div>
+
+                <aside class="location-card">
+                    <div>
+                        <span class="kicker">Nuestro taller</span>
+                        <h3>{{ $ubicacion['nombre'] }}</h3>
+                        <p>{{ $ubicacion['ciudad'] }}</p>
+                    </div>
+                    <a class="button" href="{{ $rutaUrl }}" target="_blank" rel="noopener">
+                        Cómo llegar
+                        <x-arrow-icon />
+                    </a>
+                </aside>
+            </div>
+        </section>
+
         <section class="access-section" id="acceso">
             <x-brand-mark class="access-mark" />
             <span class="kicker">Acceso exclusivo para personal</span>
@@ -169,7 +217,6 @@
                     Iniciar sesión
                     <x-arrow-icon />
                 </a>
-                <a class="text-link text-link-light" href="{{ route('register') }}">Solicitar acceso</a>
             </div>
         </section>
 
