@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -28,10 +29,18 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => ['required', Rule::enum(Role::class)],
         ]);
 
+        $role = Role::from($data['role']);
+        unset($data['role']);
+
         // El modelo User ya cifra automáticamente la contraseña.
-        User::create($data);
+        $user = new User($data);
+        $user->role = $role;
+        // Cuenta creada por un admin: se considera verificada.
+        $user->email_verified_at = now();
+        $user->save();
 
         return redirect()
             ->route('users.index')
@@ -56,7 +65,18 @@ class UserController extends Controller
                 Rule::unique('users', 'email')->ignore($user->id),
             ],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'role' => ['required', Rule::enum(Role::class)],
         ]);
+
+        $role = Role::from($data['role']);
+        unset($data['role']);
+
+        // Evita que un admin se quite el rol a sí mismo y se quede sin acceso.
+        if ($request->user()->is($user) && $role !== $user->role) {
+            return redirect()
+                ->route('users.edit', $user)
+                ->with('error', 'No puedes cambiar tu propio rol.');
+        }
 
         // Si dejaron la contraseña en blanco, se conserva la existente.
         if (blank($data['password'] ?? null)) {
@@ -64,6 +84,7 @@ class UserController extends Controller
         }
 
         $user->update($data);
+        $user->changeRole($role);
 
         return redirect()
             ->route('users.index')

@@ -14,10 +14,10 @@
     <div class="bg-circle bg3"></div>
 
     <div class="auth-wrapper">
-        <div class="auth-card {{ $flipped ? 'flipped' : '' }}" id="authCard">
+        <div class="auth-card compact" id="authCard">
 
             {{-- LOGIN --}}
-            <div class="form-panel login-panel">
+            <div class="form-panel">
                 <div class="logo"><i class="fa-solid fa-lock"></i></div>
                 <h1>Bienvenido</h1>
                 <p class="subtitle">Inicia sesión para continuar</p>
@@ -29,11 +29,9 @@
                         <div class="electric-glow"></div>
                         <div class="electric-border"></div>
                         <input type="email" id="loginEmail" name="email" placeholder=" "
-                               value="{{ $flipped ? '' : old('email') }}" autocomplete="username" required>
+                               value="{{ old('email') }}" autocomplete="username" required>
                         <label for="loginEmail">Correo electrónico</label>
-                        @unless($flipped)
-                            @error('email') <small class="error-msg">{{ $message }}</small> @enderror
-                        @endunless
+                        @error('email') <small class="error-msg">{{ $message }}</small> @enderror
                     </div>
 
                     <div class="input-group">
@@ -45,9 +43,7 @@
                         <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">
                             <i class="fa-solid fa-eye"></i>
                         </button>
-                        @unless($flipped)
-                            @error('password') <small class="error-msg">{{ $message }}</small> @enderror
-                        @endunless
+                        @error('password') <small class="error-msg">{{ $message }}</small> @enderror
                     </div>
 
                     <div class="options">
@@ -61,77 +57,6 @@
 
                     <button type="submit" class="main-btn">INICIAR SESIÓN</button>
                 </form>
-
-                <div class="switch-area">
-                    <span>¿No tienes cuenta?</span>
-                    <button type="button" class="switch-circle" onclick="flipCard()">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            {{-- REGISTRO --}}
-            <div class="form-panel signup-panel">
-                <div class="logo"><i class="fa-solid fa-user"></i></div>
-                <h1>Crear cuenta</h1>
-                <p class="subtitle">Empieza tu camino con nosotros</p>
-
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-
-                    <div class="input-group">
-                        <div class="electric-glow"></div>
-                        <div class="electric-border"></div>
-                        <input type="text" id="signupName" name="name" placeholder=" "
-                               value="{{ $flipped ? old('name') : '' }}" autocomplete="name" required>
-                        <label for="signupName">Nombre completo</label>
-                        @if($flipped)
-                            @error('name') <small class="error-msg">{{ $message }}</small> @enderror
-                        @endif
-                    </div>
-
-                    <div class="input-group">
-                        <div class="electric-glow"></div>
-                        <div class="electric-border"></div>
-                        <input type="email" id="signupEmail" name="email" placeholder=" "
-                               value="{{ $flipped ? old('email') : '' }}" autocomplete="username" required>
-                        <label for="signupEmail">Correo electrónico</label>
-                        @if($flipped)
-                            @error('email') <small class="error-msg">{{ $message }}</small> @enderror
-                        @endif
-                    </div>
-
-                    <div class="input-group">
-                        <div class="electric-glow"></div>
-                        <div class="electric-border"></div>
-                        <input type="password" id="signupPassword" name="password" placeholder=" "
-                               autocomplete="new-password" required>
-                        <label for="signupPassword">Contraseña</label>
-                        <button type="button" class="password-toggle" onclick="togglePassword('signupPassword', this)">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
-                        @if($flipped)
-                            @error('password') <small class="error-msg">{{ $message }}</small> @enderror
-                        @endif
-                    </div>
-
-                    <div class="input-group">
-                        <div class="electric-glow"></div>
-                        <div class="electric-border"></div>
-                        <input type="password" id="confirmPassword" name="password_confirmation" placeholder=" "
-                               autocomplete="new-password" required>
-                        <label for="confirmPassword">Confirmar contraseña</label>
-                    </div>
-
-                    <button type="submit" class="main-btn">CREAR CUENTA</button>
-                </form>
-
-                <div class="switch-area">
-                    <span>¿Ya tienes cuenta?</span>
-                    <button type="button" class="switch-circle" onclick="flipCard()">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </div>
