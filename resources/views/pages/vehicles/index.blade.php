@@ -10,7 +10,7 @@
                     Registrados
                 </h2>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    {{ $vehicles->total() }} en total
+                    {{ $vehicles->count() }} en total
                 </p>
             </div>
 
@@ -45,7 +45,7 @@
             </div>
         @else
             <div class="max-w-full overflow-x-auto custom-scrollbar">
-                <table class="min-w-full">
+                <table id="vehiclesTable" class="min-w-full">
                     <thead>
                         <tr class="border-t border-gray-100 dark:border-gray-800">
                             <th class="py-3 text-start">
@@ -143,9 +143,32 @@
                 </table>
             </div>
 
-            <div class="border-t border-gray-100 py-4 dark:border-gray-800">
-                {{ $vehicles->links() }}
-            </div>
         @endif
     </div>
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const table = document.querySelector('#vehiclesTable');
+
+                if (table && window.DataTable) {
+                    new DataTable(table, {
+                        pageLength: 10,
+                        lengthMenu: [10, 25, 50, 100],
+                        order: [[0, 'asc']],
+                        columnDefs: [
+                            {
+                                targets: -1,
+                                orderable: false,
+                                searchable: false,
+                            },
+                        ],
+                        language: {
+                            url: 'https://cdn.datatables.net/plug-ins/2.2.2/i18n/es-ES.json',
+                        },
+                    });
+                }
+            });
+        </script>
+    @endpush
 @endsection

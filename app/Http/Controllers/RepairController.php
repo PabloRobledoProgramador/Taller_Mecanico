@@ -26,7 +26,7 @@ class RepairController extends Controller
     {
         $repairs = Repair::with(['vehicle.customer', 'mechanic'])
             ->orderByDesc('date')
-            ->paginate(10);
+            ->get();
 
         return view('pages.repairs.index', [
             'repairs' => $repairs,

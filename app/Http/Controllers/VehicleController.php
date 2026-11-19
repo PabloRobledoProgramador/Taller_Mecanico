@@ -13,7 +13,7 @@ class VehicleController extends Controller
     {
         $vehicles = Vehicle::with('customer')
             ->latest()
-            ->paginate(10);
+            ->get();
 
         return view('pages.vehicles.index', [
             'vehicles' => $vehicles,
