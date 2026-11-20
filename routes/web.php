@@ -10,6 +10,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\RepairController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SonDriveVehicleController;
 use App\Models\Customer;
 use App\Models\Repair;
 
@@ -202,6 +203,22 @@ Route::middleware(['auth', 'role:admin,mecanico'])->group(function () {
 
 // Administración: solo admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/sondrive/vehicles', [SonDriveVehicleController::class, 'index'])
+        ->name('sondrive.vehicles.index');
+    Route::get('/sondrive/vehicles/create', [SonDriveVehicleController::class, 'create'])
+        ->name('sondrive.vehicles.create');
+    Route::post('/sondrive/vehicles', [SonDriveVehicleController::class, 'store'])
+        ->name('sondrive.vehicles.store');
+    Route::get('/sondrive/vehicles/{vehicle}/edit', [SonDriveVehicleController::class, 'edit'])
+        ->whereNumber('vehicle')
+        ->name('sondrive.vehicles.edit');
+    Route::put('/sondrive/vehicles/{vehicle}', [SonDriveVehicleController::class, 'update'])
+        ->whereNumber('vehicle')
+        ->name('sondrive.vehicles.update');
+    Route::delete('/sondrive/vehicles/{vehicle}', [SonDriveVehicleController::class, 'destroy'])
+        ->whereNumber('vehicle')
+        ->name('sondrive.vehicles.destroy');
+
     // User Routes
     Route::resource('users', UserController::class)
         ->except(['show']);

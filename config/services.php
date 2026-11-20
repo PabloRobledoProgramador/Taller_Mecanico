@@ -32,6 +32,12 @@ return [
         'key' => env('GOOGLE_MAPS_API_KEY'),
     ],
 
+    'sondrive' => [
+        'base_url' => env('SONDRIVE_API_BASE_URL'),
+        'email' => env('SONDRIVE_API_EMAIL'),
+        'password' => env('SONDRIVE_API_PASSWORD'),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

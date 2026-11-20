@@ -6,7 +6,7 @@ class MenuHelper
 {    public static function getMenuGroups()
     {
         $user = auth()->user();
-        $soloAdmin = ['/users'];
+        $soloAdmin = ['/users', '/sondrive/vehicles'];
 
         return collect(self::allMenuGroups())
             ->map(function ($group) use ($user, $soloAdmin) {
@@ -50,6 +50,11 @@ class MenuHelper
                         'icon' => 'ecommerce',
                         'name' => 'Vehículos',
                         'path' => '/vehicles',
+                    ],
+                    [
+                        'icon' => 'ecommerce',
+                        'name' => 'Flota SonDrive',
+                        'path' => '/sondrive/vehicles',
                     ],
                     [
                         'icon' => 'forms',
