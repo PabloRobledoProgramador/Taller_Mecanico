@@ -7,6 +7,7 @@ export default defineConfig({
         host: "0.0.0.0",
         port: 5173,
         strictPort: true,
+        open: "http://127.0.0.1:8000",
         hmr: {
             host: "localhost",
         },
@@ -16,7 +17,14 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ["resources/css/app.css", "resources/js/app.js"],
+            input: [
+                "resources/css/app.css",
+                "resources/js/app.js",
+                "resources/css/landing.css",
+                "resources/js/landing.js",
+                "resources/css/auth.css",
+                "resources/js/auth.js",
+            ],
             refresh: true,
         }),
         tailwindcss(),

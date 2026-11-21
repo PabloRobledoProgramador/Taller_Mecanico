@@ -3,97 +3,81 @@
 namespace App\Helpers;
 
 class MenuHelper
-{
-    public static function getMainNavItems()
+{    public static function getMenuGroups()
     {
-        return [
-            [
-                'icon' => 'dashboard',
-                'name' => 'Dashboard',
-                'subItems' => [
-                    ['name' => 'Ecommerce', 'path' => '/'],
-                ],
-            ],
-            [
-                'icon' => 'calendar',
-                'name' => 'Calendar',
-                'path' => '/calendar',
-            ],
-            [
-                'icon' => 'user-profile',
-                'name' => 'User Profile',
-                'path' => '/profile',
-            ],
-            [
-                'name' => 'Forms',
-                'icon' => 'forms',
-                'subItems' => [
-                    ['name' => 'Form Elements', 'path' => '/form-elements', 'pro' => false],
-                ],
-            ],
-            [
-                'name' => 'Tables',
-                'icon' => 'tables',
-                'subItems' => [
-                    ['name' => 'Basic Tables', 'path' => '/basic-tables', 'pro' => false]
-                ],
-            ],
-            [
-                'name' => 'Pages',
-                'icon' => 'pages',
-                'subItems' => [
-                    ['name' => 'Blank Page', 'path' => '/blank', 'pro' => false],
-                    ['name' => '404 Error', 'path' => '/error-404', 'pro' => false]
-                ],
-            ],
-        ];
-    }
+        $user = auth()->user();
+        $soloAdmin = ['/users', '/sondrive/vehicles'];
 
-    public static function getOthersItems()
-    {
-        return [
-            [
-                'icon' => 'charts',
-                'name' => 'Charts',
-                'subItems' => [
-                    ['name' => 'Line Chart', 'path' => '/line-chart', 'pro' => false],
-                    ['name' => 'Bar Chart', 'path' => '/bar-chart', 'pro' => false]
-                ],
-            ],
-            [
-                'icon' => 'ui-elements',
-                'name' => 'UI Elements',
-                'subItems' => [
-                    ['name' => 'Alerts', 'path' => '/alerts', 'pro' => false],
-                    ['name' => 'Avatar', 'path' => '/avatars', 'pro' => false],
-                    ['name' => 'Badge', 'path' => '/badge', 'pro' => false],
-                    ['name' => 'Buttons', 'path' => '/buttons', 'pro' => false],
-                    ['name' => 'Images', 'path' => '/image', 'pro' => false],
-                    ['name' => 'Videos', 'path' => '/videos', 'pro' => false],
-                ],
-            ],
-            [
-                'icon' => 'authentication',
-                'name' => 'Authentication',
-                'subItems' => [
-                    ['name' => 'Sign In', 'path' => '/signin', 'pro' => false],
-                    ['name' => 'Sign Up', 'path' => '/signup', 'pro' => false],
-                ],
-            ],
-        ];
+        return collect(self::allMenuGroups())
+            ->map(function ($group) use ($user, $soloAdmin) {
+                $group['items'] = array_values(array_filter($group['items'], function ($item) use ($user, $soloAdmin) {
+                    if (! $user) {
+                        return false;
+                    }
+                    if (in_array($item['path'], $soloAdmin)) {
+                        return $user->isAdmin();
+                    }
+                    return true;
+                }));
+                return $group;
+            })
+            ->filter(fn ($group) => count($group['items']) > 0)
+            ->values()
+            ->all();
     }
-
-    public static function getMenuGroups()
+    public static function allMenuGroups()
     {
         return [
             [
-                'title' => 'Menu',
-                'items' => self::getMainNavItems()
+                'title' => 'Panel',
+                'items' => [
+                    [
+                        'icon' => 'dashboard',
+                        'name' => 'Dashboard',
+                        'path' => '/dashboard',
+                    ],
+                ],
             ],
             [
-                'title' => 'Others',
-                'items' => self::getOthersItems()
-            ]
+                'title' => 'Operación',
+                'items' => [
+                    [
+                        'icon' => 'user-profile',
+                        'name' => 'Clientes',
+                        'path' => '/customers',
+                    ],
+                    [
+                        'icon' => 'ecommerce',
+                        'name' => 'Vehículos',
+                        'path' => '/vehicles',
+                    ],
+                    [
+                        'icon' => 'ecommerce',
+                        'name' => 'Flota SonDrive',
+                        'path' => '/sondrive/vehicles',
+                    ],
+                    [
+                        'icon' => 'forms',
+                        'name' => 'Reparaciones',
+                        'path' => '/repairs',
+                    ],
+                    [
+                        'icon' => 'calendar',
+                        'name' => 'Calendario',
+                        'path' => '/calendar',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Administración',
+                'items' => [
+                    [
+                        'icon' => 'user-profile',
+                        'name' => 'Usuarios',
+                        'path' => '/users',
+                    ],
+                ],
+            ],
         ];
     }
 
